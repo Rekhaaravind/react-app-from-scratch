@@ -524,8 +524,10 @@ Below is the code for each file we created:
 
 ```jsx
 import React, { useEffect } from 'react'
+
 const Home = () => {
   useEffect(() => {document.title = `Home Page`},[])
+
   return (
     <div className='view-home'>
       <h3>Next Launch</h3>
@@ -533,6 +535,7 @@ const Home = () => {
     </div>
   )
 }
+
 export default Home
 ```
 
@@ -540,14 +543,17 @@ export default Home
 
 ```jsx
 import React, { useEffect } from 'react'
+
 const Events = () => {
   useEffect(() => {document.title = `SpaceX Historical Events`})
+
   return (
     <div className='view-events'>
       <h3>Historical Events</h3>
     </div>
   )
 }
+
 export default Events
 ```
 
@@ -555,6 +561,7 @@ export default Events
 
 ```jsx
 import React from 'react'
+
 const Logo = () => {
   return (
     <div className={`logo`}>
@@ -564,6 +571,7 @@ const Logo = () => {
     </div>
   )
 }
+
 export default Logo
 ```
 
@@ -571,7 +579,9 @@ export default Logo
 
 ```jsx
 import React from 'react'
+
 import { NavLink } from 'react-router-dom'
+
 const Menu = () => {
   return (
     <ul style={{userSelect: 'none'}}>
@@ -590,6 +600,7 @@ const Menu = () => {
     </ul>
   )
 }
+
 export default Menu
 ```
 
@@ -690,6 +701,7 @@ export default Sidenav
 
 ```jsx
 import React from 'react'
+
 const Foot = () => {
   return (
     <div className='foot'>
@@ -697,6 +709,7 @@ const Foot = () => {
     </div>
   )
 }
+
 export default Foot
 ```
 
@@ -704,7 +717,7 @@ Now that we have each of those files created, let's put it all together in our `
 
 Video: [Code Splitting with React and React Router v4](https://www.youtube.com/watch?v=bUlkq3PDfRY&t=762s)
 
-At it's most basic, Lazily loading your Events component means that the data that is a part of that page does not get fetched and loaded if you visit that route.
+At its most basic, Lazily loading your Events component means that the data that is a part of that page does not get fetched and loaded if you visit that route.
 
 #### `Frame.js`
 
@@ -1082,7 +1095,7 @@ Last, we alter the className of the parent div with `'show'` or `'hide'` based o
 
 #### `App.scss`
 
-We also need to update a section of `App.scss`. Look for a comment: `/* Side navigation */` and replace it and it's following style with:
+We also need to update a section of `App.scss`. Look for a comment: `/* Side navigation */` and replace it and its following style with:
 
 ```scss
 /* Side Navigation */
@@ -1297,7 +1310,7 @@ For changing the theme from light to dark in the UI we will use a KendoReact `Sw
 
 ### Adding KendoReact Components
 
-The [KendoReact Switch](https://www.telerik.com/kendo-react-ui/components/inputs/switch/) is part of the [KendoReact Inputs](https://www.telerik.com/kendo-react-ui/components/inputs/) documentation which shows us what to `npm install` and what to `import` into the component and it's JSX. So let's install it.
+The [KendoReact Switch](https://www.telerik.com/kendo-react-ui/components/inputs/switch/) is part of the [KendoReact Inputs](https://www.telerik.com/kendo-react-ui/components/inputs/) documentation which shows us what to `npm install` and what to `import` into the component and its JSX. So let's install it.
 
 ```bash
 npm i @progress/kendo-react-inputs @progress/kendo-react-intl @progress/kendo-drawing
@@ -1308,10 +1321,11 @@ With that installed, let's update our `Foot.js` page with an import and add the 
 ```jsx
 import React from 'react'
 import { Switch } from '@progress/kendo-react-inputs'
+
 const Foot = () => {
   return (
     <div className='foot'>
-      🚀 The Boldly Go Company | &nbsp
+      🚀 The Boldly Go Company | &nbsp;
       <Switch
         onLabel={'light theme'}
         offLabel={'dark theme'}
@@ -1319,6 +1333,7 @@ const Foot = () => {
     </div>
   )
 }
+
 export default Foot
 ```
 
@@ -1375,7 +1390,7 @@ Next, we will add the following code to our AppProvider's `appData` default obje
     ))
 ```
 
-This checks localStorage first because if the user has a saved theme preference with us, we prioritize that. Otherwise we will fall back to `preferredTheme`. The values I can expect to get back are: `['dark','light','no-preference']`, as found in the docs on mozilla.org: [Mozilla page for `prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
+This checks localStorage first because if the user has a saved theme preference with us, we prioritize that, otherwise we will fall back to `preferredTheme`. The values I can expect to get back are: `['dark','light','no-preference']`, as found in the docs on mozilla.org: [Mozilla page for `prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
 
 We check for `'dark'` first because if they don't have that as `prefers-color-scheme`, we know that we want to fall back to `'light'` because they either prefer `'light'` or they have `'no-preference'` meaning we still default to light mode.
 
@@ -1389,7 +1404,7 @@ Let's first import `useEffect`:
 import React, { useState, useEffect, createContext } from 'react'
 ```
 
-We can add `useEffect` just below our AppProvider's `useState` hook and call `setItem` on our localStorage. This fires on tehe first render and depends on the `[app.Data.themeMode]` as seen in our dependency array. Having that value in the dependency array ensures that our component only rerenders when `themeMode` changes.
+We can add `useEffect` just below our AppProvider's `useState` hook and call `setItem` on our localStorage. This fires on the first render and depends on the `[app.Data.themeMode]` as seen in our dependency array. Having that value in the dependency array ensures that our component only rerenders when `themeMode` changes.
 
 ```js
   useEffect(() => {
@@ -1629,13 +1644,13 @@ const Launch = () => {
 export default Launch
 ```
 
-Let's ad this component to the `Home.js` page by first adding an import:
+Let's add this component to the `Home.js` page by first adding an import:
 
 ```js
 import Launch from '../partial-components/space-x/Launch'
 ```
 
-And then adding the comopnent to the JSX:
+And then adding the component to the JSX:
 
 ```js
   return (
@@ -1894,7 +1909,7 @@ const Events = () => {
   useEffect(() => {document.title = 'SpaceX Historical Events'})
 ```
 
-With: 
+With:
 
 ```js
 const Events = ({match}) => {
@@ -1941,7 +1956,7 @@ Add `useEffect` import`:
 import React, { useEffect } from 'react'
 ```
 
-OK, let's talk about what is happening here, we are checking for a URL param, fetching data and if we do have a URL param it's for `event_id` and we are going to single out a specific event and get that ready to pass to the `EventDetails` component.
+OK, let's talk about what is happening here, we are checking for a URL parameter, fetching data and if we do have a URL param, it's for `event_id` and we are going to single out a specific event and get that ready to pass to the `EventDetails` component.
 
 With this in place we can pass the two variables `events` and `event` to each respective component:
 

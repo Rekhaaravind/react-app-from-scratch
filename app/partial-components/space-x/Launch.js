@@ -6,7 +6,7 @@ const getSpaceXLaunchNext = () => {
     .then((res) => res.json())
 }
 const getSpaceXLaunch = (flight) => {
-  return fetch('https://api.spacexdata.com/v3/launches/${flight}')
+  return fetch(`https://api.spacexdata.com/v3/launches/${flight}`)
     .then((res) => res.json())
 }
 

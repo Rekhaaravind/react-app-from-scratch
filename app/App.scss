@@ -50,9 +50,13 @@ main {
   grid-template-rows: 60px auto 50px;
 }
 /* Side Navigation */
-.sidenav {
+.sidenav,
+.sidenav.show {
   min-width: 150px;
   height: 100vh;
+}
+.sidenav.hide {
+  display: none;
 }
 /* Top Navigation */
 header {

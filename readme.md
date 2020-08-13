@@ -1693,7 +1693,7 @@ We are going to add an alternate fetch function called `getSpaceXLaunch` which w
 
 ```js
 const getSpaceXLaunch = (flight) => {
-  return fetch('https://api.spacexdata.com/v3/launches/${flight}')
+  return fetch(`https://api.spacexdata.com/v3/launches/${flight}`)
     .then((res) => res.json())
 }
 ```

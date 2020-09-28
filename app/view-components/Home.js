@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     <div className='view-home'>
-      <h3>Next Launch</h3>
+      <h3 data-cy='next-launch'>Next Launch</h3>
       <Launch next={true} />
     </div>
   )
